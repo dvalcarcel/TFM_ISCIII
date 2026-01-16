@@ -50,23 +50,41 @@ p1 <- ggplot(tumor_epithelial_long, aes(x = Weight, y = Cell_Type, fill = stat(x
   geom_density_ridges_gradient(scale = 3, size = 0.3, rel_min_height = 0.01) +
   scale_fill_viridis_c(name = "Weight", option = "C") +
   labs(
-    title = "A) Distribution of Epithelial Cell Types in spots annotated as tumors by the pathologist",
+    title = "A) Patient 38 - Distribution of Epithelial Cell Types \n in spots annotated as tumors by the pathologist",
     x = "Weight",
     y = "Cell Type"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 18, face = "bold"),
+    legend.title = element_text(size = 16, face = "bold"),
+    legend.text  = element_text(size = 14),
+    axis.text.x  = element_text(size = 14),  
+    axis.text.y  = element_text(size = 14),  
+    axis.title.x = element_text(size = 16),  
+    axis.title.y = element_text(size = 16)
+  )
 
 p2 <- ggplot(normal_epithelial_long, aes(x = Weight, y = Cell_Type, fill = stat(x))) +
    geom_density_ridges_gradient(scale = 3, size = 0.3, rel_min_height = 0.01) +
    scale_fill_viridis_c(name = "Weight", option = "C") +
    labs(
-     title = "B) Distribution of Epithelial Cell Types in spots annotated as normal breast by the pathologist",
+     title = "B)  Patient 38 - Distribution of Epithelial Cell Types \n in spots annotated as normal breast by the pathologist",
      x = "Weight",
      y = "Cell Type"
    ) +
-   theme_minimal()
+   theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 18, face = "bold"),
+    legend.title = element_text(size = 16, face = "bold"),
+    legend.text  = element_text(size = 14),
+    axis.text.x  = element_text(size = 14),  
+    axis.text.y  = element_text(size = 14),  
+    axis.title.x = element_text(size = 16),  
+    axis.title.y = element_text(size = 16)
+  )
 
-pdf("Patient_38_Epithelial_density_plot.pdf",  height = 7, width = 20)
+pdf("Patient_38_Epithelial_density_plot.pdf",  height = 10, width = 30)
 p1+p2
 dev.off()
 
