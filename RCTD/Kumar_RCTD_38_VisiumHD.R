@@ -3,7 +3,7 @@ library(spacexr)
 library(SingleCellExperiment)
 library(Matrix)
 
-setwd("/home/dvalcarcel/RCTD_snRNAseq")
+setwd("PATH")
 # ----------------------------
 # Step 1: Load scRNA Seurat object
 # ----------------------------
